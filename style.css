@@ -1,0 +1,347 @@
+* {
+    /*Ha olyan tulajdonságot adunk egy elemhez ami befolyásolja az elem szélességét az mostantól nem fogja befolyásolni az elemek szélességét és ezért nem jelenik meg az alsó gördítősáv amitől nem lesz responsive az oldalunk, ezzel biztosítjuk magunkat! 100%-on belül adja hozzá a paddinget és a margint és ezért marad responsive az oldalunk. */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    /*A headerem szélessége mindig akkora legyen mint a böngészőablakom*/
+    width: 100%;
+    height: 80px;
+    /*flexbox: arra az elemre rakom rá amelyik elem a szülő elem! <header>*/
+    display: flex;
+    /*display: flex; egymás mellé, inline elemek lesznek elemek vertikális igazítása x-tengely*/
+    justify-content: space-between;
+    align-items: center;
+    /*align-items: center; elemek vertikális igazítása y-tengely*/
+    /*x-tengely igazítása, space-between = két elem között az egyik elemet a start-ra teszi és a másikat meg az end-re és közte hagy helyet */
+    padding: 20px 200px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid #000;
+    transition:  all 0.3s ease-in-out;
+}
+
+#welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+    background: url("/assets/onyx_indoor.jpg") no-repeat center/cover;
+    color: beige;
+    border: 5px solid #000;
+    border-radius: 8px;
+    letter-spacing: 2px;
+}
+
+#welcome h1 {
+    font-size: 40px;
+    font-family: fantasy, Arial, Helvetica, sans-serif;
+    letter-spacing: 10px;
+}
+
+#welcome p {
+    width: 40%;
+}
+
+#text p {
+    font-size: 17px;
+    margin: 25px auto;
+}
+
+#about {
+    padding: 60px 0;
+    background: #161616;
+    color: #F5F5DC;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    letter-spacing: 2px;
+}
+
+#about p {
+    width: 70%;
+}
+
+#about h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#services {
+    padding: 100px 0;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#services h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#services-container {
+    display: flex;
+    width: 70%;
+    margin: 30px auto;
+    align-items: center;
+    /*service kártyák közötti távolság*/
+    gap: 30px;
+    
+}
+
+#services-container img {
+    border-radius: 5px;
+}
+
+.service {
+   height: 300px; 
+   border: 2px solid #000;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background: #000;
+   color: #F5F5DC;
+   box-shadow: 3px 4px 10px 1px #161616;
+}
+
+/*A service class elemek közül valahanyadik(2) második gyermek elemre vonatkozik.*/
+.service:nth-child(1) {
+    background: #F5F5DC;
+    color: #161616;
+ }
+
+ .service:nth-child(2) button {
+    border: 2px solid #000;
+}
+ 
+.service:nth-child(3) {
+   background: #F5F5DC;
+   color: #161616;
+}
+
+.service h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.service button {
+    background: none;
+    border: 2px solid #F5F5DC;
+}
+
+.service button img {
+    height: 50px;
+    width: auto;
+}
+
+
+#contact {
+    padding: 60px 0;
+    background: #161616;
+    color: #F5F5DC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact a {
+    margin-top: 25px;
+    color: #F5F5DC;
+}
+
+#contact h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+#footer {
+    padding: 40px 0;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+#footer img {
+    height: 50px;
+}
+
+#logo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#logo img {
+    height: 50px;
+}
+
+#logo {
+    display: flex;
+    gap: 25px;
+}
+
+#hamburger {
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 1610px) {
+    
+    #services-container {
+        flex-direction: column;
+    }
+
+    .service {
+        padding: 0 20px;
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    body {
+        font-size: 20px;
+    }
+
+    #hamburger {
+        display: block;
+        font-size: 50px;
+        margin-bottom: 18px;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 908px) {
+
+    #welcome h1 {
+        font-size: 30px;
+    }
+
+    #welcome p {
+        font-size: 16px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    #hamburger {
+        display: block;
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+    nav {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 545px) {
+    #welcome h1 {
+        font-size: 25px;
+    }
+    
+    #contact h3 {
+        width: 470px;
+    }
+    
+    #logo img {
+        height: 30px;
+    }
+
+    #footer img {
+        height: 30px;
+    }
+
+
+    .service p {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    #welcome h1 {
+        font-size: 30px;
+    }
+
+    #contact h3 {
+        width: 300px;
+    }
+
+    #welcome p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #welcome h1 {
+        font-size: 30px;
+    }
+
+    .service h4 {
+        font-size: 16px;
+    }
+
+    .service p {
+        font-size: 11px;
+    }
+
+    #about h2 {
+        font-size: 18px;
+    }
+
+    #about p {
+        font-size: 12px;
+    }
+
+    #footer p {
+        font-size: 12px;
+    }
+
+
+}
